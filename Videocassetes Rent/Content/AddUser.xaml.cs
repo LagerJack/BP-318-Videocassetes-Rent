@@ -18,22 +18,24 @@ namespace Videocassetes_Rent.Content
         public static DataSet dst = new DataSet();
         public static SQLiteCommand cmd = new SQLiteCommand();
         public static SQLiteDataAdapter da = new SQLiteDataAdapter();
-
+        
+        
         public AddUser()
         {
             InitializeComponent();
 
             //init db 
-
+            //Очистка таблицы данных
             dt.Clear();
-
+            //Инициализация соединения БД
             connect.Open();
-
+            //Инициализация командной строки
             cmd = new SQLiteCommand(query, connect);
+            //Инициализация DataAdapter
             da = new SQLiteDataAdapter(cmd);
-
+            //Заполнение DataAdapter в соответствии с доской
             da.Fill(dt);
-
+            //Закрытие соединения БД
             connect.Close();
 
         }
